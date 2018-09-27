@@ -18,7 +18,16 @@ class ApiEsOpen
     }
 
     public function setParams($params){
-        if(is_array($params)) $this->params = $params;
+        if(is_array($params)){
+            if(isset($params['where'])){
+                foreach($params['where'] as &$value){
+                    if(is_array($value) && $value[0] === 'like'){
+                        $value[1] = str_replace('%','*',$value[1]);
+                    }
+                }
+            }
+            $this->params = $params;
+        }
     }
 
     public function setIndex($index){
