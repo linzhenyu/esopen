@@ -1,13 +1,13 @@
 {
-    "name": "esopen",
+    "name": "linzy/esopen",
     "description": "es openapi",
     "keywords": ["elasticsearch", "openapi", "es"],
     "type": "sdk",
     "license": "MIT",
     "authors": [
         {
-            "name": "LiuYanxiao",
-            "email": "liuyx@fshows.com"
+            "name": "linzhenyu",
+            "email": "linzhenyu@fshows.com"
         }
     ],
     "require": {
