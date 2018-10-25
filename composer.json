@@ -1,5 +1,5 @@
 {
-    "name": "liuyx/esopen",
+    "name": "esopen",
     "description": "es openapi",
     "keywords": ["elasticsearch", "openapi", "es"],
     "type": "sdk",
