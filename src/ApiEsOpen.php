@@ -75,10 +75,27 @@ class ApiEsOpen
         $curlUrl = $this->config['ES_OPENAPI_URL'].'/'.$this->handle.'/'.$this->index;
         $this->params['docker'] = $this->config['docker'];
         try{
-            $ret = $this->curl($curlUrl, json_encode($this->params));
+            $ret = $this->curl($curlUrl, $this->buildQuery($this->params));
         }catch (\Exception $e){
             return ['status'=>false, 'error_message'=>$e->getMessage()];
         }
         return json_decode($ret, true);
+    }
+    
+        /**
+     * 拼装参数[编码]
+     * @param $data
+     * @param bool $urlEncode 是否编码
+     * @return string
+     */
+    private function buildQuery($data,$urlEncode = FALSE)
+    {
+        if(is_array($data)){
+            $data = http_build_query($data);
+            if (!$urlEncode){
+                return urldecode($data);
+            }
+        }
+        return $data;
     }
 }
